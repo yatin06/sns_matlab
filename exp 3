@@ -1,0 +1,42 @@
+%sns experiment 3
+function [xen,xon] = exp3_102065030(n)
+%n= -20:1:20;
+un= (n>=0) ;
+und= (n>=10) ;
+subplot(2,2,1);
+plot(n,un);
+title('u(n)')
+legend('102065030')
+xlabel('time(n)')
+ylabel ('Amplitude')
+grid
+
+subplot(2,2,2);
+plot(n,und);
+title('u(n-10)');
+xlabel('time(n)')
+ylabel ('Amplitude')
+legend('102065030');
+grid
+
+
+xn=un- und;
+xn_f= fliplr (xn) ;
+xen= (xn+xn_f) /2;
+xon= (xn-xn_f) /2;
+subplot (2,2,3) ;
+stem (n, xen);
+xlabel ('Time (n)---->');
+ylabel ('Amplitude of xe(n)')
+grid
+legend('102065030');
+title('Even Part');
+
+subplot (2,2,4) ;
+stem (n, xon);
+grid
+xlabel ('Time (n)')
+legend('102065030')
+ylabel ('Amplitude of xo(n)')
+title ('Odd part');
+end
