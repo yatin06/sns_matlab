@@ -1,0 +1,74 @@
+%sns Experiment 2
+function [ut,un,rt,rect] = exp2_102065030(t)
+
+%unit step generation in continuos time domain
+ut=(t>=0);
+subplot(7,1,1);
+plot(t,ut);
+xlabel('---time(t)--->')
+ylabel('Amplitude')
+legend('102065030')
+title('Unit step signal in the continuous time domain')
+grid
+
+%unit step generation in descrete time domain
+subplot(7,1,2);
+stem(t,ut);
+xlabel('---time(t)--->')
+ylabel('Amplitude')
+legend('102065030')
+title('Unit step signal in the discrete time domain')
+grid
+
+%unit impulse signal in the discrete-time domain(time shifted version)
+un=(t>=0);
+un_1=(t>=0.0001);
+dn=un-un_1;
+subplot(7,1,3);
+stem(t,dn);
+xlabel('time(t)-->');
+ylabel('amplitude');
+title('Unit impulse Siganl in descrete time domain');
+legend('102065030')
+grid
+
+%Ramp signal in Continuos time domain with Amplitude = 5
+rt=(t>=0).*5.*t;
+subplot(7,1,4);
+plot(t,rt);
+xlabel('time(t)-->');
+ylabel('amplitide');
+title('Ramp Signal in Continuos Time Domain with Amplitude = 5');
+legend('102065030')
+grid
+
+%Ramp signal in Descrete time domain with Amplitude = 3
+rt=(t>=0).*3.*t;
+subplot(7,1,5);
+stem(t,rt);
+xlabel('time(t)-->');
+ylabel('amplitide');
+title('Ramp Signal in Discrete Time Domain with Amplitude = 3');
+legend('102065030')
+grid
+
+%Unit Ramp signal in continuos time domain
+rt=(t>=0).*t;
+subplot(7,1,6);
+plot(t,rt);
+xlabel('time(t)-->');
+ylabel('amplitide');
+title('Unit Ramp Signal in Continuos Time domain');
+legend('102065030')
+grid
+
+%Rectangular pulse of width T=2 sec and amplitude one
+un1=(t>=-1);
+un2=(t>1);
+rect=un1-un2;
+subplot(7,1,7);
+stem(t,rect);
+xlabel('time(t)-->');
+ylabel('amplitude');
+title('rectangular pulse signal');
+end
