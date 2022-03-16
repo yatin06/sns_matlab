@@ -1,0 +1,43 @@
+%generate delayed and scaled signals
+function [ut,rmt,sinc] = exp4_102065030(t)
+
+%u(t-1)
+ut=(t>=1)
+subplot(2,2,1);
+plot(t,ut);
+xlabel('--time(t)--->')
+ylabel('Amplitude of u(t)-->')
+legend('102065030')
+title('u(t+1)');
+grid
+
+%u(2t+1)
+ut=(t>=-1/2)
+subplot(2,2,2);
+plot(t,ut);
+xlabel('--time(t)--->')
+ylabel('Amplitude of u(t)-->')
+legend('102065030')
+title('u(2t+1)');
+grid
+
+%r(t-1)
+rmt=(t>=1).*(t-1)
+subplot(2,2,3);
+plot(t,rmt)
+xlabel('--time(t)--->')
+ylabel('Amplitude of u(t)-->')
+legend('102065030')
+title('r(t-1)');
+grid
+
+%sinc function
+sinc = sin(pi.*t)./(pi.*t)
+subplot(2,2,4);
+plot(t,sinc)
+xlabel('---time(t)--->')
+ylabel('Amplitude of u(t)--->')
+legend('102065030')
+title('sinc function')
+grid
+end
